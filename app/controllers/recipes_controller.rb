@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
   def index
     category = Category.find_by(external_id: params[:category_id])
     if category
-      @recipes = Mealdb::Client.new.recipes(category.name).parse['meals']
+      @recipes = client.recipes(category.name).parse['meals']
     else
       render json: { message: 'Category not found.' }, status: :not_found
     end
@@ -20,6 +20,6 @@ class RecipesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_recipe
-    @recipe = Mealdb::Client.new.recipe(params[:id]).parse['meals'].try(:first)
+    @recipe = client.recipe(params[:id]).parse['meals'].try(:first)
   end
 end

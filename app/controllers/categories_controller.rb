@@ -2,11 +2,9 @@
 
 class CategoriesController < ApplicationController
   def index
-    @categories = Rails.cache.fetch('categories', expires_in: 1.hour) do
-      categories = Mealdb::Client.new.categories.parse['categories']
-      categories.each do |category|
-        Category.create(name: category['strCategory'], external_id: category['idCategory'])
-      end
+    @categories = Rails.cache.fetch('categories', expires_in: 2.hours) do
+      categories = client.categories.parse['categories']
+      CategoryCreatorService.new(categories).call
       categories
     end
   end
