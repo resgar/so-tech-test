@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'response'
+
 module Mealdb
   class Request
     def initialize(base_url:, path:)
@@ -7,11 +9,9 @@ module Mealdb
       @path = path
     end
 
-    def call
-      http_response = Excon.get("#{base_url}/#{path}")
-      status = http_response[:status]
-      body = http_response[:body]
-      Response.new(status:, body:)
+    def get
+      result = Excon.get("#{base_url}/#{path}")
+      Response.new(result)
     end
 
     private

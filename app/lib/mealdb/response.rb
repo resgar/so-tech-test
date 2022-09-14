@@ -2,23 +2,21 @@
 
 module Mealdb
   class Response
-    attr_reader :status
-
-    def initialize(status:, body:)
-      @status = status
-      @body = body
+    def initialize(attrs)
+      @body = attrs[:body]
+      @status = attrs[:status]
     end
 
     def parse
       ActiveSupport::JSON.decode(body) if valid?
     end
 
-    private
-
-    attr_reader :body
-
     def valid?
       [200, 201].include?(status)
     end
+
+    private
+
+    attr_reader :body, :status
   end
 end

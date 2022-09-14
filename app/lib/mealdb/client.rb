@@ -5,25 +5,27 @@ require_relative 'request'
 module Mealdb
   class Client
     def categories
-      request('categories.php')
+      get('categories.php')
     end
 
     def recipe(id)
-      request("lookup.php?i=#{id}")
+      get("lookup.php?i=#{id}")
     end
 
     def recipes(category_name)
-      request("filter.php?c=#{category_name}")
+      get("filter.php?c=#{category_name}")
     end
 
     private
+
+    attr_reader :request
 
     def base_url
       'https://www.themealdb.com/api/json/v1/1'
     end
 
-    def request(path)
-      Request.new(base_url:, path:).call
+    def get(path)
+      Request.new(base_url:, path:).get
     end
   end
 end
