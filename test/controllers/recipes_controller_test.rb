@@ -14,7 +14,12 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'with valid ID should return the recipe' do
-    get recipe_url(1), as: :json
+    get recipe_url(52_874), as: :json
     assert_response :success
+  end
+
+  test 'with invalid ID should return error' do
+    get recipe_url(1), as: :json
+    assert_response :not_found
   end
 end

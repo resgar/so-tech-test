@@ -12,12 +12,14 @@ class RecipesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    render json: { message: 'Recipe not found.' }, status: :not_found unless @recipe
+  end
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_recipe
-    # @recipe = Recipe.find(params[:id])
+    @recipe = Mealdb::Client.new.recipe(params[:id]).parse['meals'].try(:first)
   end
 end
