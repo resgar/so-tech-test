@@ -61,4 +61,6 @@ end
 group :test do
   # A code coverage analysis tool for Ruby.
   gem 'simplecov', require: false
+
+  gem "vcr"
 end

@@ -8,7 +8,9 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    get categories_url, as: :json
+    VCR.use_cassette("categories") do
+      get categories_url, as: :json
+    end
     assert_response :success
   end
 end

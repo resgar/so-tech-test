@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.themealdb.com/api/json/v1/1/filter.php?c=Invalid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.92.4
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      Date:
+      - Wed, 14 Sep 2022 16:30:05 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/7.0.9, ASP.NET
+      Access-Control-Allow-Origin:
+      - "*"
+      CF-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=VMGltjkfrZ%2FfkHv1hWxggcDavI2jrgukf1mUmmFaRQHOth%2Bs9cULjxNJgg9XF1Jimr2rT0X8yMB0HxBRr9IdgiM01r7kesNeGidihX8GXuK1oVrB1rFCtXohGPvEjI6suNrhbMQwI7Y%3D"}],"group":"cf-nel","max_age":604800}'
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      CF-RAY:
+      - 74aa81567ee25c0e-FRA
+      alt-svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"meals":null}'
+  recorded_at: Wed, 14 Sep 2022 16:30:05 GMT
+recorded_with: VCR 6.1.0

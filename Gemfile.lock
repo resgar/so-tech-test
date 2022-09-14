@@ -197,6 +197,7 @@ GEM
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.2.0)
+    vcr (6.1.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -220,6 +221,7 @@ DEPENDENCIES
   simplecov
   sqlite3 (~> 1.4)
   tzinfo-data
+  vcr
 
 RUBY VERSION
    ruby 3.1.2p20
