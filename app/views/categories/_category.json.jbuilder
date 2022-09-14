@@ -4,4 +4,4 @@ json.id category['idCategory']
 json.name category['strCategory']
 json.thumbnail category['strCategoryThumb']
 json.description category['strCategoryDescription']
-# json.url category_url(category, format: :json)
+json.recipes_url category_recipes_url(category['idCategory'], format: :json)
